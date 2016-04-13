@@ -1,7 +1,7 @@
-Webpack React Starter
+Webpack React Redux Starter
 =====================
 ```
-Simple webpack-dev-server with babel and Hot Module Replacement working with react and stylus loader.
+Simple React Redux starter with Webpack
 ```
 
 ## how to install
