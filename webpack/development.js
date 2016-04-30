@@ -1,15 +1,15 @@
 var path = require('path'),
 	webpack = require('webpack'),
-	HtmlWebpackPlugin = require('html-webpack-plugin'),
-	ExtractTextPlugin = require('extract-text-webpack-plugin');
+	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+	devtool: 'eval-source-map',
 	resolve: {
 		extensions: ['', '.js', '.css', '.styl', '.json']
 	},
-	entry: path.join(__dirname, 'source/react/main.js'),
+	entry: path.join(__dirname, '../source/react/main.js'),
 	output: {
-		path: path.join(__dirname, 'build'),
+		path: path.join(__dirname, '../build'),
 		filename: "[name].js"
 	},
 	module: {
@@ -25,7 +25,7 @@ module.exports = {
 			},
 			{
 				test: /\.styl$/,
-				loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
+				loader: 'style-loader!css-loader!stylus-loader'
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
@@ -43,11 +43,14 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, "source/html/template.html")
+			template: path.join(__dirname, "../source/html/template.html")
 		}),
-		new webpack.BannerPlugin("{name:['Ueslei de Souza'], link:['https://github.com/udsndesign']}"),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin(),
-		new ExtractTextPlugin("[name].css")
-	]
+		new webpack.HotModuleReplacementPlugin()
+	],
+	devServer: {
+		colors: true,
+		historyApiFallback: true,
+		inline: true,
+		hot: true
+	}
 }

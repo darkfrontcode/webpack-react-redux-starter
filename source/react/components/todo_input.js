@@ -13,12 +13,12 @@ export default class TodoInput extends Component{
 		})
 	}
 	render(){
-		return  <div id="example">
+		return  <div id="todo_input" className="clearfix">
 					<input
 						type="text"
 						placeholder="Type your todo"
-						value={this.handleChange.bind(this)}
-						onChange={this.state.inputText}
+						value={this.state.inputText}
+						onChange={this.handleChange.bind(this)}
 					/>
 					<button>Submit</button>
 				</div>
