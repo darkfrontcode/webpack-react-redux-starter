@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import actions from '../actions/actions'
 
 export default class TodoInput extends Component{
 	constructor(props, context){
@@ -12,6 +13,10 @@ export default class TodoInput extends Component{
 			inputText: event.target.value
 		})
 	}
+	handleSubmit(event){
+		event.preventDefault()
+		this.props.dispatch(actions.addTodo(this.state.inputText))
+	}
 	render(){
 		return  <div id="todo_input" className="clearfix">
 					<input
@@ -20,7 +25,7 @@ export default class TodoInput extends Component{
 						value={this.state.inputText}
 						onChange={this.handleChange.bind(this)}
 					/>
-					<button>Submit</button>
+				<button onClick={this.handleSubmit.bind(this)}>Submit</button>
 				</div>
 	}
 }

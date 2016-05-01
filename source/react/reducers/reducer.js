@@ -4,19 +4,19 @@ function getId(state){
     }, -1) + 1
 }
 
-export default function reducer(state, action){
+let reducer = function(state, action){
     switch (action.type){
         case 'ADD_TODO':
-            Object.assign({}, state, {
-                todos: [
-                    {
-                        text: action.text,
-                        completed: false,
-                        id: getId(state)
-                    },
-                    ...state.todos
-                ]
+            return Object.assign({}, state, {
+                todos: [{
+                    text: action.text,
+                    completed: false,
+                    id: getId(state)
+                }, ...state.todos]
             })
-        default: return state;
+        default:
+            return state;
     }
 }
+
+export default reducer

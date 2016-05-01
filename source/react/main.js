@@ -1,6 +1,26 @@
+// Implementing Redux 2 | React + Redux + Webpack (Part 9)
+
+
 import React from 'react'
 import {render} from 'react-dom'
+import configureStore from './stores/store'
+import { Provider } from 'react-redux'
 import Template from './components/template'
 import stylus from '../stylus/main'
 
-render(<Template />, document.getElementById('app'))
+let initialState = {
+    todos: [{
+            id: 0,
+            completed: 0,
+            text: 'Initial todo for demo purposes'
+        }]
+}
+
+let store = configureStore(initialState)
+
+render(
+    <Provider store={store}>
+        <Template />
+    </Provider>,
+    document.getElementById('app')
+)
