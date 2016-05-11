@@ -19,13 +19,15 @@ export default class TodoInput extends Component{
 	}
 	render(){
 		return  <div id="todo_input" className="clearfix">
-					<input
-						type="text"
-						placeholder="Type your todo"
-						value={this.state.inputText}
-						onChange={this.handleChange.bind(this)}
-					/>
-				<button onClick={this.handleSubmit.bind(this)}>Submit</button>
+					<form onSubmit={this.handleSubmit.bind(this)}>
+						<input
+							type="text"
+							placeholder="Type your todo"
+							value={this.state.inputText}
+							onChange={this.handleChange.bind(this)}
+						/>
+						<input type="submit" text="submit" />
+					</form>
 				</div>
 	}
 }

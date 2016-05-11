@@ -8,11 +8,27 @@ let reducer = function(state, action){
     switch (action.type){
         case 'ADD_TODO':
             return Object.assign({}, state, {
-                todos: [{
-                    text: action.text,
-                    completed: false,
-                    id: getId(state)
-                }, ...state.todos]
+                todos: [
+                    {
+                        text: action.text,
+                        completed: false,
+                        id: getId(state)
+                    },
+                    ...state.todos
+                ]
+            })
+        case 'COMPLETE_TODO':
+            return Object.assign({}, state, {
+                todo: state.todos.map((todo)=>{
+                    return todo.id === action.id ?
+                        Object.assign({}, todo, {completed: !todo.completed}) : todo
+                })
+            })
+        case 'DELETE_TODO':
+            return Object.assign({}, state, {
+                todos: state.todos.filter((todos)=>{
+                    return todo.id !== action.id
+                })
             })
         default:
             return state;
