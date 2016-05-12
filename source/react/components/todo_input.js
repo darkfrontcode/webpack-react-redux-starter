@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import actions from '../actions/actions'
 
 export default class TodoInput extends Component{
 	constructor(props, context){
@@ -15,7 +14,7 @@ export default class TodoInput extends Component{
 	}
 	handleSubmit(event){
 		event.preventDefault()
-		this.props.dispatch(actions.addTodo(this.state.inputText))
+		this.props.addTodo(this.state.inputText)
 	}
 	render(){
 		return  <div id="todo_input" className="text-center">
@@ -28,7 +27,7 @@ export default class TodoInput extends Component{
 							value={this.state.inputText}
 							onChange={this.handleChange.bind(this)}
 							className="form-control"/>
-						<input type="submit" text="submit" className="btn btn-primary" />
+						<input type="submit" text="submit" className="btn btn-default" />
 					</form>
 				</div>
 	}

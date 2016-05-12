@@ -14,7 +14,7 @@ export default class TodoList extends Component{
 							return <TodoItem
 										key={key}
 										todo={todo}
-										dispatch={this.props.dispatch}
+										actions={this.props.actions}
 									/>
 						})
 					}
