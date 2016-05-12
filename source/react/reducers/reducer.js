@@ -26,7 +26,7 @@ let reducer = function(state, action){
             })
         case 'DELETE_TODO':
             return Object.assign({}, state, {
-                todos: state.todos.filter((todos)=>{
+                todos: state.todos.filter((todo)=>{
                     return todo.id !== action.id
                 })
             })

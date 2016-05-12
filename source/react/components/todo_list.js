@@ -3,7 +3,12 @@ import TodoItem from './todo_item'
 
 export default class TodoList extends Component{
 	render(){
-		return <ul className="clearfix">
+		return 	<tbody>
+					<tr>
+						<td><b>Name:</b></td>
+						<td><b>Complete:</b></td>
+						<td><b>Delete:</b></td>
+					</tr>
 					{
 						this.props.todos.map((todo, key)=>{
 							return <TodoItem
@@ -13,6 +18,6 @@ export default class TodoList extends Component{
 									/>
 						})
 					}
-				</ul>
+				</tbody>
 	}
 }

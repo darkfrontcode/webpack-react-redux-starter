@@ -9,16 +9,26 @@ export default class TodoItem extends Component{
 		this.props.dispatch(actions.deleteTodo(this.props.todo.id))
 	}
 	render(){
-		return  <li>
-                	<span>{this.props.todo.text}</span>
-					<button
-						className="btn btn-secondary"
-						onClick={this.complete.bind(this)}
-						>Mark as completed</button>
-					<button
-						className="btn btn-secondary"
-						onClick={this.delete.bind(this)}
-					>Delete todo</button>
-                </li>
+		return  <tr>
+					<td><span>{this.props.todo.text}</span></td>
+					<td>
+						<a href>
+							<i
+								className="glyphicon glyphicon-ok"
+								aria-hidden="true"
+								onClick={this.complete.bind(this)}
+							></i>
+						</a>
+					</td>
+					<td>
+						<a href>
+							<i
+								className="glyphicon glyphicon-remove"
+								aria-hidden="true"
+								onClick={this.delete.bind(this)}
+							></i>
+						</a>
+					</td>
+				</tr>
 	}
 }

@@ -18,15 +18,17 @@ export default class TodoInput extends Component{
 		this.props.dispatch(actions.addTodo(this.state.inputText))
 	}
 	render(){
-		return  <div id="todo_input" className="clearfix">
-					<form onSubmit={this.handleSubmit.bind(this)}>
+		return  <div id="todo_input" className="text-center">
+					<form
+						onSubmit={this.handleSubmit.bind(this)}
+						className="form-inline text-align">
 						<input
 							type="text"
 							placeholder="Type your todo"
 							value={this.state.inputText}
 							onChange={this.handleChange.bind(this)}
-						/>
-						<input type="submit" text="submit" />
+							className="form-control"/>
+						<input type="submit" text="submit" className="btn btn-primary" />
 					</form>
 				</div>
 	}
