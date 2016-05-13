@@ -10,13 +10,21 @@ import UserInfo from './user_info'
 import $ from 'jquery'
 import bootstrap from 'bootstrap/dist/css/bootstrap.min'
 
-class Template extends Component{
+class App extends Component{
 	render(){
 		return  <section id="template">
 					<div className="page-header">
 						<h1 className="text-center">Todo List</h1>
 					</div>
-					<UserInfo />
+					<div className="page-header">
+						<table width="100%">
+							<tbody>
+								<UserInfo
+									user={this.props.user}
+									actions={this.props.actions}/>
+							</tbody>
+						</table>
+					</div>
 					<TodoInput addTodo={this.props.actions.addTodo} />
 					<table width="100%" className="table table-striped">
 						<TodoList
@@ -38,4 +46,4 @@ function mapDispatchToProps(dispatch){
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Template)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

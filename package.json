@@ -24,6 +24,7 @@
     "react-transform-hmr": "^1.0.4",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.2",
     "stylus-loader": "^2.0.0",

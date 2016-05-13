@@ -1,11 +1,8 @@
-// Implementing Redux 2 | React + Redux + Webpack (Part 9)
-
-
 import React from 'react'
 import {render} from 'react-dom'
 import configureStore from './stores/store'
 import { Provider } from 'react-redux'
-import Template from './components/template'
+import App from './components/app'
 import stylus from '../stylus/main'
 
 let initialState = {
@@ -24,7 +21,7 @@ let store = configureStore(initialState)
 
 render(
     <Provider store={store}>
-        <Template />
+        <App />
     </Provider>,
     document.getElementById('app')
 )
