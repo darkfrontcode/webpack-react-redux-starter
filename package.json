@@ -2,7 +2,8 @@
   "name": "webpack-react-redux-starter-master",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --content-base build/ --config ./webpack/development.js --progress --colors",
+    "start": "npm run open&&webpack",
+    "webpack":"webpack-dev-server --content-base build/ --config ./webpack/development.js --progress --colors",
     "build": "SET NODE_ENV=production&& webpack --config ./webpack/production.js --progress --colors",
     "clean": "rm -rf ./build/assets ./build/index.html ./build/main.js ./build/main.css ./build/fonts",
     "open": "start chrome http://localhost:8080"
